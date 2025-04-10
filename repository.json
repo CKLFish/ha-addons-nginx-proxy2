@@ -1,0 +1,5 @@
+{
+    "name": "Home Assistant Add-on: nginx-proxy2",
+    "url": "https://github.com/CKLFish/ha-addons-nginx-proxy2",
+    "maintainer": "CKLFish <cklfish@gmail.com>"
+  }

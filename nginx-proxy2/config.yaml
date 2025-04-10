@@ -1,0 +1,44 @@
+---
+version: 3.11.1
+hassio_api: true
+slug: nginx_proxy2
+name: NGINX Home Assistant SSL proxy 2
+description: An SSL/TLS proxy 2
+url: https://github.com/CKLFish/ha-addons-nginx-proxy2
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+image: homeassistant/{arch}-addon-nginx_proxy
+init: false
+map:
+  - ssl
+  - share
+options:
+  domain: null
+  hsts: max-age=31536000; includeSubDomains
+  certfile: fullchain.pem
+  keyfile: privkey.pem
+  cloudflare: false
+  customize:
+    active: false
+    default: nginx_proxy2_default*.conf
+    servers: nginx_proxy2/*.conf
+  real_ip_from: []
+ports:
+  443/tcp: 443
+  80/tcp: null
+schema:
+  domain: str
+  hsts: str
+  certfile: str
+  keyfile: str
+  cloudflare: bool
+  customize:
+    active: bool
+    default: str
+    servers: str
+  real_ip_from:
+    - str
